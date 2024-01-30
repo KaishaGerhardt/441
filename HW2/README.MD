@@ -1,0 +1,6 @@
+Write a reflection of what was created by you compared to what ChatGPT or Copilot created for you. 
+Also take some time to think about how you would feel if you only used the output from a generative AI model. Do you think you could adequately explain the code that was written? Do you think that the work is still yours?
+
+
+    I used ChatGPT to see the difference and how it would generate the script.
+    Unless I read the homework wrong, the response to the homework when placed into ChatGPT was more "complex" than necessary. It did provide a decent understanding and example of how to format to an extent but did not fully understand the homework. I have used ChatGPT for coding before - when working in Unity - and it fairly did create the script that I needed but it would not integrate in well all the time. In this case, I would say it explained adequately. However, I don't believe that I could call it my own work since it was generated through previous works, I simply asked the question.
