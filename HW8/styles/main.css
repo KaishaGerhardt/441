@@ -1,0 +1,34 @@
+#artContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#imageContainer {
+  position: absolute;
+  background-size:cover;
+  background-repeat:no-repeat;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Start invisible */
+}
+
+#textContainer {
+  color: aliceblue;
+  font-family:cursive;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  opacity: 0; /* Start invisible */
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: #ff69b4; /* Pink color for Lava Lamp effect */
+  opacity: 0; /* Start invisible */
+}
