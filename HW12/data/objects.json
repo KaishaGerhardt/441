@@ -1,7 +1,0 @@
-[
-    {"id": 1, "x": 100, "y": 100, "size": 30, "color": "red"},
-    {"id": 2, "x": 200, "y": 200, "size": 40, "color": "blue"},
-    {"id": 3, "x": 300, "y": 300, "size": 50, "color": "green"},
-    {"id": 4, "x": 400, "y": 400, "size": 60, "color": "yellow"},
-    {"id": 5, "x": 500, "y": 500, "size": 70, "color": "orange"}
-]
