@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Project</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/GLTFLoader.js"></script>
+    <script src="libs/TrackBallControls.js"></script>
+    <script src="libs/STLLoader.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script>
+        // Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Shapes
+        const geometry1 = new THREE.SphereGeometry(1, 32, 32);
+        const material1 = new THREE.MeshPhongMaterial({ color: 0xE68585 }); // color for Saturn
+        const saturn = new THREE.Mesh(geometry1, material1);
+        saturn.position.set(0, 0, -5);
+        scene.add(saturn);
+
+        const geometry2 = new THREE.TorusGeometry(3, 0.1, 16, 100);
+        const material2 = new THREE.MeshPhongMaterial({ color: 0xF0DCA4 }); // color for rings
+        const rings = new THREE.Mesh(geometry2, material2);
+        rings.position.set(0, 0, -5);
+        scene.add(rings);
+        
+
+        // Lighting
+        const light = new THREE.PointLight(0xFF0000, 1.5);
+        light.position.set(0, 15, -10);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0xDFEDFA, 0.5);
+        scene.add(ambientLight);
+
+        // Model
+        const loader = new THREE.GLTFLoader();
+        loader.load('models/Garfield.obj', 
+        function (gltf) {
+            gltf.scene.scale.set(0.02, 0.02, 0.02);
+            gltf.scene.position.set(0, 0, -5);
+            scene.add(gltf.scene);
+        }, undefined, function (error) {
+            console.error(error);
+        });
+
+        // Rotation
+        function animate() {
+            requestAnimationFrame(animate);
+            saturn.rotation.y += 0.01;
+            rings.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Camera controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.enableZoom = true;
+
+        // Resize handling
+        window.addEventListener('resize', function () {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+
+        // Start
+        camera.position.z = 10;
+    </script>
+</body>
+</html>
