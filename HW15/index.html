@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babylon.js Project - Shapes</title>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <style>
+        canvas {
+            touch-action: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #nextPageBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <button id="nextPageBtn">Go to Model Page</button>
+    <script>
+        // Babylon.js scene setup
+        var canvas = document.getElementById("renderCanvas");
+        var engine = new BABYLON.Engine(canvas, true);
+        var scene = new BABYLON.Scene(engine);
+        var camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, 10, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, true);
+
+        // Directional light
+        var light = new BABYLON.DirectionalLight("dirLight", new BABYLON.Vector3(0, -1, 0), scene);
+        light.position = new BABYLON.Vector3(0, 10, 0);
+
+        // Create shapes
+        var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2 }, scene);
+        sphere.position.x = -3;
+
+        var box = BABYLON.MeshBuilder.CreateBox("box", { size: 2 }, scene);
+        box.position.x = -1;
+
+        var cylinder = BABYLON.MeshBuilder.CreateCylinder("cylinder", { diameter: 2, height: 2 }, scene);
+        cylinder.position.x = 1;
+
+        var torus = BABYLON.MeshBuilder.CreateTorus("torus", { diameter: 2, thickness: 0.5 }, scene);
+        torus.position.x = 3;
+
+        var plane = BABYLON.MeshBuilder.CreatePlane("plane", { size: 2 }, scene);
+        plane.position.x = 5;
+
+        // Animation
+        engine.runRenderLoop(function () {
+            scene.render();
+            sphere.rotation.y += 0.01;
+            box.rotation.y += 0.01;
+            cylinder.rotation.y += 0.01;
+            torus.rotation.y += 0.01;
+            plane.rotation.y += 0.01;
+        });
+
+        // Resize handling
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+
+        // Button click event
+        document.getElementById("nextPageBtn").addEventListener("click", function () {
+            window.location.href = "model.html";
+        });
+
+        
+    </script>
+</body>
+</html>
