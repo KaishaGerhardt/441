@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Darkness Plays Tricks on You</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <script>
+        function play() {
+          var audio = document.getElementById("audio");
+          audio.play();
+        }
+      </script>
+  
+      <input type="button" value="PLAY AUDIO" onclick="play()">
+      <audio id="audio" src="Audio/TRESPASSER_AdobeStock_452597962_preview.m4a"></audio>
+  <div class="container">
+
+
+    <img id="storyImage" src="images/scary story images/sleepy.JPG" alt="Story Image">
+    <div id="storyText" class=""></div>
+    <button id="nextButton" class="hidden" onclick="nextPage()">Next</button>
+    <button id="restartButton" class="hidden" onclick="restart()">Restart</button>
+  </div>
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="Audio/TRESPASSER_AdobeStock_452597962_preview.m4a" type="audio/mp4">
+    Your browser does not support the audio tag.
+  </audio>
+  <script src="main.js"></script>
+</body>
+</html>
