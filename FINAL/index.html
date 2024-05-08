@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Horror Story</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <img id="storyImage" src="images/scary story images/sleepy.JPG" alt="Story Image">
+    <div id="storyText" class="hidden"></div>
+    <button id="nextButton" class="hidden" onclick="nextPage()">Next</button>
+    <button id="restartButton" class="hidden" onclick="restart()">Restart</button>
+  </div>
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="Audio/usko meriläinen string quartet no.3.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <script src="main.js"></script>
+</body>
+</html>
